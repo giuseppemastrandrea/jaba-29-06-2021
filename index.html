@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!--
+    l'uso del meta tag viewport è necessario per utilizzare le media query
+  -->
+  <title>Title</title>
+  <style>
+
+      /* Una media query è strutturata come segue:
+      @media (condizione da verificare) {
+        Qui dentro i ruleset che vengono applicati a determinati elementi se la condizione
+        è verificata.
+      }
+      */
+
+      *{
+          margin: 0;
+      }
+      body {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+    .box{
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* transition: all 1s ease-in-out; */
+        transition: all 1s linear;
+        font-size: 20px;
+
+        animation-name: scaleAnimation; /* -> il nome dell'animazione custom che ci siamo creati (vedi sezione @keyframes) */
+        animation-duration: 2s; /* -> la durata dell'animazione */
+        animation-iteration-count: infinite; /* -> quante volte dev'essere ripetuta l'animazione */
+        animation-timing-function: ease-in-out; /* -> dice la funzione di timing da utilizzare */
+        /* animation-timing-function: linear; */
+    }
+
+    .box:hover{
+        height: 400px;
+        color: #ffffff;
+        font-size: 30px;
+    }
+
+    .box-2{
+        width: 300px;
+        height: 300px;
+        background-color: chartreuse;
+    }
+
+    @media (min-width: 900px){
+        .box-2{
+            width: 400px;
+            height: 400px;
+        }
+
+        .box{
+            animation: none;
+        }
+    }
+
+      @keyframes scaleAnimation {
+          0% {
+              width: 100px;
+              transform: scale(1);
+              background-color: cornflowerblue;
+          }
+
+          50% {
+              width: 100px;
+              transform: scale(1.5);
+              background-color: chartreuse;
+          }
+
+          100% {
+              width: 100px;
+              transform: scale(1);
+              background-color: cornflowerblue;
+          }
+      }
+
+    @keyframes variableWidthAnimation {
+        0% {
+            width: 100px;
+            background-color: cornflowerblue;
+        }
+
+        50% {
+            width: 150px;
+            background-color: chartreuse;
+        }
+
+        100% {
+            width: 100px;
+            background-color: cornflowerblue;
+        }
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="box-2">
+    Lorem ipsum
+  </div>
+
+  <div class="box">
+    Hello.
+  </div>
+</body>
+</html>
